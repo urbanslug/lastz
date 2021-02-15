@@ -23,3 +23,10 @@ binaries (the version there might lag behind the latest version here):
 
 Updated Apr/6/2018 by Bob Harris (the LASTZ guy)
 
+## Install
+### cmake
+For some reason cmake seems to have issues with gcc so let's set the compiler to clang
+
+CC=clang CXX=clang cmake -H. -Bbuild && cmake --build build -- -j 3
+
+CC=clang CXX=clang cmake -DBUILD_STATIC=1 -H. -Bbuild && cmake --build build -- -j 3
