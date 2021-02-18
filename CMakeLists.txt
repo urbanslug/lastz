@@ -9,7 +9,6 @@ project(lastz VERSION 1.04.12)
 
 set(CMAKE_C_FLAGS "-O3 -Wall -Wextra -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE \
                    -DVERSION_MAJOR=${VERSION_MAJOR} \
-                   -DVERSION_MAJOR=${VERSION_MAJOR} \
                    -DVERSION_MINOR=${VERSION_MINOR} \
                    -DVERSION_SUBMINOR=${VERSION_SUBMINOR} \
                    -DREVISION_DATE=${REVISION_DATE} \
@@ -51,10 +50,9 @@ set(SOURCES
   src/sequences.c
   src/capsule.c)
 
+add_library(lastz ${SOURCES})
 
-add_executable(lastz ${SOURCES})
-
-add_library(lastz_lib ${SOURCES})
-set_target_properties(lastz_lib PROPERTIES OUTPUT_NAME "lastz")
+add_executable(lastz_bin ${SOURCES})
+set_target_properties(lastz_bin PROPERTIES OUTPUT_NAME "lastz")
 
 target_link_libraries(lastz m)
